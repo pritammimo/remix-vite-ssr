@@ -6,7 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import stylesheet from "~/tailwind.css?url";
+const queryClient = new QueryClient();
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
@@ -29,5 +31,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return <QueryClientProvider client={queryClient}>
+  <Outlet/>
+</QueryClientProvider>;
 }

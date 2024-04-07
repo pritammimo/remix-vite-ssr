@@ -17,6 +17,12 @@ dependencies:
   '@remix-run/serve':
     specifier: ^2.8.1
     version: 2.8.1(typescript@5.4.4)
+  '@tanstack/react-query':
+    specifier: ^5.29.0
+    version: 5.29.0(react@18.2.0)
+  axios:
+    specifier: ^1.6.8
+    version: 1.6.8
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -35,12 +41,18 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  remix-hook-form:
+    specifier: ^4.3.1
+    version: 4.3.1(@remix-run/react@2.8.1)(react-dom@18.2.0)(react-hook-form@7.51.2)(react@18.2.0)
   tailwind-merge:
     specifier: ^2.2.2
     version: 2.2.2
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.3)
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
 
 devDependencies:
   '@remix-run/dev':
@@ -82,6 +94,9 @@ devDependencies:
   postcss:
     specifier: ^8.4.38
     version: 8.4.38
+  remix-flat-routes:
+    specifier: ^0.6.4
+    version: 0.6.4(@remix-run/dev@2.8.1)
   tailwindcss:
     specifier: ^3.4.3
     version: 3.4.3
@@ -1258,6 +1273,15 @@ packages:
       source-map: 0.7.4
       typescript: 5.4.4
 
+  /@remix-run/v1-route-convention@0.1.4(@remix-run/dev@2.8.1):
+    resolution: {integrity: sha512-fVTr9YlNLWfaiM/6Y56sOtcY8x1bBJQHY0sDWO5+Z/vjJ2Ni7fe2fwrzs1jUFciMPXqBQdFGePnkuiYLz3cuUA==}
+    peerDependencies:
+      '@remix-run/dev': ^1.15.0 || ^2.0.0
+    dependencies:
+      '@remix-run/dev': 2.8.1(@remix-run/serve@2.8.1)(typescript@5.4.4)(vite@5.2.8)
+      minimatch: 7.4.6
+    dev: true
+
   /@remix-run/web-blob@3.1.0:
     resolution: {integrity: sha512-owGzFLbqPH9PlKb8KvpNJ0NO74HWE2euAn61eEiyCXX/oteoVzTVSN8mpLgDjaxBf2btj5/nUllSUgpyd6IH6g==}
     dependencies:
@@ -1411,6 +1435,19 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@tanstack/query-core@5.29.0:
+    resolution: {integrity: sha512-WgPTRs58hm9CMzEr5jpISe8HXa3qKQ8CxewdYZeVnA54JrPY9B1CZiwsCoLpLkf0dGRZq+LcX5OiJb0bEsOFww==}
+    dev: false
+
+  /@tanstack/react-query@5.29.0(react@18.2.0):
+    resolution: {integrity: sha512-yxlhHB73jaBla6h5B6zPaGmQjokkzAhMHN4veotkPNiQ3Ac/mCxgABRZPsJJrgCTvhpcncBZcDBFxaR2B37vug==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.29.0
+      react: 18.2.0
+    dev: false
 
   /@types/acorn@4.0.6:
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -1899,6 +1936,10 @@ packages:
     hasBin: true
     dev: true
 
+  /asynckit@0.4.0:
+    resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
+
   /autoprefixer@10.4.19(postcss@8.4.38):
     resolution: {integrity: sha512-BaENR2+zBZ8xXhM4pUaKUxlVdxZ0EZhjvbopwnXmxRUfqDmwSpC2lAi/QXvx7NRdPCo1WKEcEF6mV64si1z4Ew==}
     engines: {node: ^10 || ^12 || >=14}
@@ -1925,6 +1966,16 @@ packages:
     resolution: {integrity: sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==}
     engines: {node: '>=4'}
     dev: true
+
+  /axios@1.6.8:
+    resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
+    dependencies:
+      follow-redirects: 1.15.6
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /axobject-query@3.2.1:
     resolution: {integrity: sha512-jsyHu61e6N4Vbz/v18DHwWYKK0bSWLqn47eeDSKPB7m8tqMHF9YJ+mhIk2lVteyZrY8tnSj/jHOv4YiTCuCJgg==}
@@ -2202,6 +2253,13 @@ packages:
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
 
+  /combined-stream@1.0.8:
+    resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      delayed-stream: 1.0.0
+    dev: false
+
   /comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
     dev: true
@@ -2393,6 +2451,11 @@ packages:
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
     dev: true
+
+  /delayed-stream@1.0.0:
+    resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
+    engines: {node: '>=0.4.0'}
+    dev: false
 
   /depd@2.0.0:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
@@ -3160,6 +3223,16 @@ packages:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
     dev: true
 
+  /follow-redirects@1.15.6:
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
+
   /for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -3171,6 +3244,15 @@ packages:
     dependencies:
       cross-spawn: 7.0.3
       signal-exit: 4.1.0
+
+  /form-data@4.0.0:
+    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
+    engines: {node: '>= 6'}
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
+    dev: false
 
   /format@0.2.2:
     resolution: {integrity: sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww==}
@@ -3196,6 +3278,15 @@ packages:
   /fs-extra@10.1.0:
     resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.11
+      jsonfile: 6.1.0
+      universalify: 2.0.1
+    dev: true
+
+  /fs-extra@11.2.0:
+    resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
+    engines: {node: '>=14.14'}
     dependencies:
       graceful-fs: 4.2.11
       jsonfile: 6.1.0
@@ -4483,6 +4574,20 @@ packages:
       brace-expansion: 1.1.11
     dev: true
 
+  /minimatch@5.1.6:
+    resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
+  /minimatch@7.4.6:
+    resolution: {integrity: sha512-sBz8G/YjVniEz6lKPNpKxXwazJe4c19fEfV2GDMX6AjFz+MX9uDWIZW8XreVhkFW3fkIdTv/gxWr/Kks5FFAVw==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
   /minimatch@9.0.3:
     resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -5144,6 +5249,10 @@ packages:
       forwarded: 0.2.0
       ipaddr.js: 1.9.1
 
+  /proxy-from-env@1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+    dev: false
+
   /pump@2.0.1:
     resolution: {integrity: sha512-ruPMNRkN3MHP1cWJc9OWr+T/xDP0jhXYCLfJcBuX54hhfIBnaQmAUMfDcG4DM5UMWByBbJY69QSphm3jtDKIkA==}
     dependencies:
@@ -5201,6 +5310,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form@7.51.2(react@18.2.0):
+    resolution: {integrity: sha512-y++lwaWjtzDt/XNnyGDQy6goHskFualmDlf+jzEZvjvz6KWDf7EboL7pUvRCzPTJd0EOPpdekYaQLEvvG6m6HA==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is@16.13.1:
@@ -5346,6 +5464,32 @@ packages:
       mdast-util-to-hast: 12.3.0
       unified: 10.1.2
     dev: true
+
+  /remix-flat-routes@0.6.4(@remix-run/dev@2.8.1):
+    resolution: {integrity: sha512-/0bTfaNSd2O3ak+cCLAlmHIsgm7YWiaBiu5ENUyuSWSNwF/KaHuKFhcHHhozPevQ8ROgCZG9tNbWzH6ktJoprA==}
+    hasBin: true
+    peerDependencies:
+      '@remix-run/dev': ^1.15.0 || ^2
+    dependencies:
+      '@remix-run/dev': 2.8.1(@remix-run/serve@2.8.1)(typescript@5.4.4)(vite@5.2.8)
+      '@remix-run/v1-route-convention': 0.1.4(@remix-run/dev@2.8.1)
+      fs-extra: 11.2.0
+      minimatch: 5.1.6
+    dev: true
+
+  /remix-hook-form@4.3.1(@remix-run/react@2.8.1)(react-dom@18.2.0)(react-hook-form@7.51.2)(react@18.2.0):
+    resolution: {integrity: sha512-6MO2amNTDe0t6j2msmkwCcHpMmDBXK8IbwHQcHWfgm82wCrIcWkM0DCtnC/ISfyyPv7EBhKYK5gSUUM9WalHcw==}
+    peerDependencies:
+      '@remix-run/react': ^2.0.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-hook-form: ^7.51.0
+    dependencies:
+      '@remix-run/react': 2.8.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.4)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-hook-form: 7.51.2(react@18.2.0)
+    dev: false
 
   /require-like@0.1.2:
     resolution: {integrity: sha512-oyrU88skkMtDdauHDuKVrgR+zuItqr6/c//FXzvmxRGMexSDc6hNvJInGW3LL46n+8b50RykrvwSUIIQH2LQ5A==}
@@ -6419,6 +6563,10 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+    dev: false
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
